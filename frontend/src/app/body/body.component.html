@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="text">
+    <p class="line-1">
+      Discover Exciting Events Happening <br />
+      Near You - Stay Tuned for Updates!
+    </p>
+    <p class="line-2">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation.
+    </p>
+  </div>
+  <div class="content">
+    <div class="recommended">
+      <div class="recommended-nav">
+        <p style="padding: 0; margin: 0; align-self: center; font-size: large">
+          Recommened shows
+        </p>
+        <span class="material-symbols-outlined">east</span>
+      </div>
+      <div class="recommended-shows">
+        <ul>
+          <li *ngFor="let show of recommended">
+            <div>
+              <img class="show-img" [src]="show.imgUrl" alt="" />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
