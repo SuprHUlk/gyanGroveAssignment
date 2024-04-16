@@ -3,8 +3,14 @@
   height: 100vh;
   position: relative;
   background-image: url("../../assets/Banner.svg");
-  overflow-x: hidden;
-  overflow-y: visible;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font-family: "Inter", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 .text {
@@ -22,7 +28,7 @@
 }
 
 .line-1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 500;
   line-height: 1.4;
 }
@@ -33,19 +39,38 @@
   padding: 0 5rem;
 }
 
+.line-1-mob,
+.line-2-mob {
+  display: none;
+}
+
 .content {
   position: absolute;
   top: 110%;
-  left: 60%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   text-align: center;
-
   color: white;
+
   overflow: hidden;
 }
 
+.recommended {
+  position: relative;
+  top: 50%;
+  left: 10%;
+
+  padding-bottom: 2rem;
+}
+
 .recommended-nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 80%;
+}
+
+.recommended-shows-nav {
   display: flex;
   align-items: flex-end;
   gap: 1rem;
@@ -53,18 +78,14 @@
   padding-bottom: 1rem;
 }
 
-.recommended-shows {
-  overflow-x: hidden;
+.see-all a {
+  color: white;
 }
 
-ul {
+.recommended-shows {
   overflow-x: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
-}
-
-.recommended-shows::-webkit-scrollbar {
-  display: none;
 }
 
 .recommended-shows ul {
@@ -79,5 +100,91 @@ ul {
 }
 
 .show-img {
-  width: 15rem;
+  width: 18rem;
+}
+
+.img-cont {
+  position: relative;
+}
+
+.details {
+  position: absolute;
+  top: 86%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: start;
+  width: 90%;
+  padding: 0.6rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.loc-time {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loc {
+  display: flex;
+
+  gap: 0.1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    position: relative;
+    background-image: url("../../assets/Banner.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    text-align: center;
+  }
+
+  .line-1,
+  .line-2 {
+    display: none;
+  }
+
+  .line-1-mob,
+  .line-2-mob {
+    display: block;
+    color: white;
+  }
+
+  .line-1-mob {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 2.5;
+  }
+
+  .line-2-mob {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .content {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    color: white;
+
+    overflow: hidden;
+  }
+
+  .show-img {
+    width: 16rem;
+  }
 }

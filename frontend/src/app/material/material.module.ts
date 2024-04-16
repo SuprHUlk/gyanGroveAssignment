@@ -12,6 +12,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
 
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { CdkDrag, CdkDragHandle } from '@angular/cdk/drag-drop';
@@ -27,6 +28,7 @@ const materialComponents = [
   MatMenuModule,
   MatToolbarModule,
   MatSidenavModule,
+  MatCardModule,
   CdkMenuModule,
   CdkDrag,
   CdkDragHandle,

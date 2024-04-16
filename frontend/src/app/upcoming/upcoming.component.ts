@@ -2,18 +2,18 @@ import { Component } from '@angular/core';
 import { FetchService } from '../services/fetch.service';
 
 @Component({
-  selector: 'app-body',
-  templateUrl: './body.component.html',
-  styleUrls: ['./body.component.css'],
+  selector: 'app-upcoming',
+  templateUrl: './upcoming.component.html',
+  styleUrls: ['./upcoming.component.css'],
 })
-export class BodyComponent {
+export class UpcomingComponent {
   constructor(private fetch: FetchService) {}
 
-  recommended: any;
+  upcoming: any;
 
   ngOnInit(): void {
-    this.fetch.recommended().subscribe((res: any) => {
-      this.recommended = res.events.map((event: any) => {
+    this.fetch.upcoming().subscribe((res: any) => {
+      this.upcoming = res.events.map((event: any) => {
         event.date = this.getDate(event.date);
         event.distanceKm = this.getDistance(event.distanceKm);
         event.weather = this.getWeather(event.weather);
@@ -61,7 +61,7 @@ export class BodyComponent {
   }
 
   appendData = () => {
-    this.fetch.recommended().subscribe({
+    this.fetch.upcoming().subscribe({
       next: (res) => {
         const temp = res.events.map((event: any) => {
           event.date = this.getDate(event.date);
@@ -71,7 +71,7 @@ export class BodyComponent {
             'https://lh3.googleusercontent.com/d/' + event.imgUrl.split('/')[5];
           return event;
         });
-        this.recommended = [...this.recommended, ...temp];
+        this.upcoming = [...this.upcoming, ...temp];
       },
     });
   };

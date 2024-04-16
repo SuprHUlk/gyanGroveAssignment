@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="upcoming">
+    <div class="upcoming-nav" style="color: black">
+      <p
+        style="
+          padding: 0;
+          margin: 0;
+          align-self: center;
+          font-size: large;
+          font-weight: 600;
+        "
+      >
+        Upcoming events
+      </p>
+      <span class="material-symbols-outlined" style="color: black">east</span>
+    </div>
+    <div
+      class="upcoming-events"
+      infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="500"
+      (scrolled)="onScroll()"
+      [scrollWindow]="false"
+    >
+      <mat-card *ngFor="let event of upcoming">
+        <div class="image-container">
+          <img class="event-img" [src]="event.imgUrl" alt="" />
+          <div class="overlay-text">
+            <p style="font-size: large; text-align: center">{{ event.date }}</p>
+          </div>
+        </div>
+        <mat-card-content style="font-size: x-small">
+          <p class="name">{{ event.eventName }}</p>
+          <div class="loc-time">
+            <div class="loc">
+              <span class="material-symbols-outlined">location_on</span>
+              <p style="padding: 0; margin: 0">
+                {{ event.cityName }}
+              </p>
+            </div>
+            <div class="time" style="display: flex; color: grey">
+              <p>{{ event.weather }}</p>
+              <p>{{ event.distanceKm }}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
