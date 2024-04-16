@@ -10,17 +10,22 @@ export class UpcomingComponent {
   constructor(private fetch: FetchService) {}
 
   upcoming: any;
+  pageNumber: number = 1;
+  offset: number = 1;
 
   ngOnInit(): void {
-    this.fetch.upcoming().subscribe((res: any) => {
-      this.upcoming = res.events.map((event: any) => {
-        event.date = this.getDate(event.date);
-        event.distanceKm = this.getDistance(event.distanceKm);
-        event.weather = this.getWeather(event.weather);
-        event.imgUrl =
-          'https://lh3.googleusercontent.com/d/' + event.imgUrl.split('/')[5];
-        return event;
-      });
+    this.fetch.upcoming(this.pageNumber).subscribe({
+      next: (res) => {
+        this.upcoming = res.events.map((event: any) => {
+          event.date = this.getDate(event.date);
+          event.distanceKm = this.getDistance(event.distanceKm);
+          event.weather = this.getWeather(event.weather);
+          event.imgUrl =
+            'https://lh3.googleusercontent.com/d/' + event.imgUrl.split('/')[5];
+          return event;
+        });
+      },
+      complete: () => this.pageNumber++,
     });
   }
 
@@ -61,7 +66,7 @@ export class UpcomingComponent {
   }
 
   appendData = () => {
-    this.fetch.upcoming().subscribe({
+    this.fetch.upcoming(this.pageNumber).subscribe({
       next: (res) => {
         const temp = res.events.map((event: any) => {
           event.date = this.getDate(event.date);
@@ -72,6 +77,11 @@ export class UpcomingComponent {
           return event;
         });
         this.upcoming = [...this.upcoming, ...temp];
+      },
+      complete: () => {
+        if (this.pageNumber === 1) this.offset = 1;
+        else if (this.pageNumber === 5) this.offset = -1;
+        this.pageNumber += this.offset;
       },
     });
   };

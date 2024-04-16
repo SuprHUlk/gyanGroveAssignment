@@ -76,6 +76,18 @@ mat-card {
   gap: 0.1rem;
 }
 
+@media only screen and (min-width: 1700px) {
+  .event-img {
+    width: 32rem;
+  }
+
+  .overlay-text {
+    top: 87%;
+    width: 90%;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     padding: 8rem 0 0 3rem;
