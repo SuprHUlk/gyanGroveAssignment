@@ -1,5 +1,5 @@
 .container {
-  padding: 18rem 0 10rem 10rem;
+  padding: 20rem 0 10rem 10rem;
   max-width: 90%;
   font-family: "Inter", sans-serif;
 }
@@ -90,7 +90,7 @@ mat-card {
 
 @media only screen and (max-width: 600px) {
   .container {
-    padding: 8rem 0 0 3rem;
+    padding: 10rem 0 0 3rem;
     max-width: 90%;
   }
 

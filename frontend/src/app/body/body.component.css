@@ -99,23 +99,27 @@
   margin-right: 2rem;
 }
 
-.show-img {
-  width: 18rem;
-}
-
 .img-cont {
   position: relative;
+  overflow: hidden;
+  max-width: 16rem;
+  max-height: 23rem;
+  border-radius: 0.5rem;
+}
+
+.show-img {
+  width: 23rem;
+  transform: translate(-15%, -10%);
 }
 
 .details {
   position: absolute;
-  top: 86%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
   text-align: start;
   width: 90%;
-  padding: 0.6rem;
 
   display: flex;
   flex-direction: column;
@@ -184,7 +188,28 @@
     overflow: hidden;
   }
 
+  .img-cont {
+    position: relative;
+    overflow: hidden;
+    max-width: 15rem;
+    max-height: 23rem;
+  }
+
   .show-img {
-    width: 16rem;
+    width: 23rem;
+    transform: translate(-15%, -10%);
+  }
+
+  .details {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: start;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
   }
 }
